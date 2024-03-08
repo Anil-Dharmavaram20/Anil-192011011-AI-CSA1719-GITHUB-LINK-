@@ -1,0 +1,22 @@
+% Facts representing relationships between conditions and goals 
+has_fever(john) :- 
+has_flu(john). 
+has_cough(john) :- 
+has_flu(john). 
+has_headache(john) :- 
+has_flu(john). 
+has_flu(john) :- 
+likes(john, pizza), 
+likes(john, ice_cream), 
+likes(john, chocolate). 
+likes(john, pizza). 
+likes(john, ice_cream). 
+likes(john, chocolate). 
+likes(susan, chocolate). 
+likes(susan, wine). 
+likes(mary, wine). 
+% Predicate to check if a person has flu symptoms 
+has_flu_symptoms(Person) :- 
+has_fever(Person), 
+has_cough(Person), 
+has_headache(Person).
