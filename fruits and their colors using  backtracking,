@@ -1,0 +1,15 @@
+% Facts representing fruits and their colors 
+fruit(apple, red). 
+fruit(banana, yellow). 
+fruit(grape, purple). 
+fruit(orange, orange). 
+fruit(watermelon, green). 
+% Predicate to find the color of a given fruit 
+fruit_color(Fruit, Color) :- 
+fruit(Fruit, Color). 
+% Predicate to find fruits with a given color 
+fruit_with_color(Color, Fruit) :- 
+fruit(Fruit, Color). 
+% Sample queries 
+% fruit_color(apple, Color). 
+% fruit_with_color(red, Fruit).
