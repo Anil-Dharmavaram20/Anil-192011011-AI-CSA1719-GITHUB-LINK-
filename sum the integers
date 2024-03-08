@@ -1,0 +1,14 @@
+sum_integers(1, 1). 
+sum_integers(N, Sum) :- 
+N > 1, 
+N1 is N - 1, 
+sum_integers(N1, Sum1), 
+Sum is Sum1 + N. 
+``` 
+### Input: - Provide the value of n for which you want to compute the sum of 
+integers from 1 to n. 
+### Output: - The output will be the sum of integers from 1 to n. 
+### Example: 
+**Input:** 
+``` 
+?- sum_integers(5, Sum).
