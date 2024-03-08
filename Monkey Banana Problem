@@ -1,0 +1,36 @@
+% Initial state of the room 
+initial_state(room(0, 0, 10, not_grabbed)). 
+% Define actions that the monkey can take 
+% Action to climb the pole 
+move(room(X, Y, Height, not_grabbed), room(X, Y, Height, not_grabbed)) 
+:- 
+Height > 0. 
+% Action to move horizontally 
+move(room(X1, Y1, Height, not_grabbed), room(X2, Y2, Height, 
+not_grabbed)) :- 
+member((X2, Y2), [(X1+1, Y1), (X1-1, Y1), (X1, Y1+1), (X1, Y1-1)]), 
+between(0, 10, X2), 
+between(0, 10, Y2). 
+% Action to grab the bananas 
+move(room(X, Y, Height, not_grabbed), room(X, Y, Height, grabbed)) :- 
+Height =:= 0. 
+% Define goal state 
+goal_state(room(_, _, _, grabbed)). 
+% Predicate to find solution using depth-first search 
+solve(State, []) :- 
+goal_state(State). 
+solve(State, [Move | Moves]) :- 
+move(State, NextState), 
+solve(NextState, Moves), 
+Move = NextState. 
+% Predicate to print solution 
+print_solution([]). 
+print_solution([Move | Moves]) :- 
+write(Move), nl, 
+print_solution(Moves). 
+% Entry point to find and print solution 
+f
+ ind_solution :- 
+initial_state(InitialState), 
+solve(InitialState, Moves), 
+print_solution(Moves).
