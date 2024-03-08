@@ -1,0 +1,21 @@
+% Facts representing symptoms and diseases 
+symptom(fever, flu). 
+symptom(cough, flu). 
+symptom(sore_throat, flu). 
+symptom(fatigue, flu). 
+symptom(headache, flu). 
+symptom(runny_nose, cold). 
+symptom(sneezing, cold). 
+symptom(sore_throat, cold). 
+symptom(congestion, cold). 
+symptom(fever, covid_19). 
+symptom(cough, covid_19). 
+symptom(shortness_of_breath, covid_19). 
+symptom(loss_of_taste, covid_19). 
+symptom(loss_of_smell, covid_19). 
+% Predicate to diagnose disease based on symptoms 
+diagnose(Symptoms, Disease) :- 
+member(Symptom, Symptoms), 
+symptom(Symptom, Disease). 
+% Sample query 
+% diagnose([fever, cough, headache], Disease).
