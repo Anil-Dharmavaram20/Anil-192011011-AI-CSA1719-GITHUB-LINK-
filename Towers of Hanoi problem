@@ -1,0 +1,15 @@
+% Predicate to solve Towers of Hanoi 
+hanoi(1, A, _, C) :- 
+write('Move top disk from '), 
+write(A), 
+write(' to '), 
+writeln(C). 
+hanoi(N, A, B, C) :- 
+N > 1, 
+M is N-1, 
+hanoi(M, A, C, B), 
+hanoi(1, A, _, C), 
+hanoi(M, B, A, C). 
+% Predicate to start Towers of Hanoi with N disks 
+start_hanoi(N) :- 
+hanoi(N, 'A', 'B', 'C').
