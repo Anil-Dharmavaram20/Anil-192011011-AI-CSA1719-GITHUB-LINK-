@@ -1,0 +1,19 @@
+% Facts representing initial knowledge 
+likes(john, pizza). 
+likes(mary, pizza). 
+likes(john, ice_cream). 
+likes(john, chocolate). 
+likes(susan, chocolate). 
+likes(susan, wine). 
+likes(mary, wine). 
+% Rules to infer new information 
+likes(john, wine) :- 
+likes(john, pizza), 
+likes(john, chocolate). 
+likes(mary, ice_cream) :- 
+likes(mary, pizza), 
+likes(mary, wine). 
+% Predicate to query the program for inferred information 
+query_likes(Person, Item) :- 
+likes(Person, Item), 
+format('~w likes ~w.~n', [Person, Item]).
