@@ -1,0 +1,31 @@
+% Define the graph 
+edge(a, b, 4). 
+edge(a, c, 1). 
+edge(b, d, 3). 
+edge(c, d, 2). 
+edge(c, e, 5). 
+edge(d, e, 1). 
+% Best First Search algorithm 
+best_first_search(Start, Goal, Heuristic) :- 
+best_first_search_helper([(Start, 0)], Goal, Heuristic, []). 
+% Helper predicate for Best First Search 
+best_first_search_helper([(Node, _)|_], Node, _, Visited) :- 
+reverse([Node|Visited], Path), 
+write('Path: '), write(Path), nl. 
+best_first_search_helper([(Node, _)|RestQueue], Goal, Heuristic, 
+Visited) :- 
+f
+ indall((Next, Cost), (edge(Node, Next, EdgeCost), not(member((Next, 
+_), RestQueue)), Cost is Heuristic(Next)), Children), 
+append(Children, RestQueue, UpdatedQueue), 
+sort(2, @=<, UpdatedQueue, SortedQueue), 
+best_first_search_helper(SortedQueue, Goal, Heuristic, 
+[Node|Visited]). 
+% Heuristic function (for example purposes, can be replaced with a 
+custom heuristic) 
+heuristic(Node) :- 
+heuristic_values(Values), 
+member((Node, Value), Values), 
+write('Heuristic value for '), write(Node), write(': '), write(Value), nl. 
+% Heuristic values (for example purposes) 
+heuristic_values([(a, 6), (b, 5), (c, 4), (d, 3), (e, 2)]).
