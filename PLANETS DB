@@ -1,0 +1,21 @@
+% Facts representing properties of planets 
+planet(mercury, 0.39, 0, rocky). 
+planet(venus, 0.72, 0, rocky). 
+planet(earth, 1.00, 1, rocky). 
+planet(mars, 1.52, 2, rocky). 
+planet(jupiter, 5.20, 79, gas_giant). 
+planet(saturn, 9.58, 82, gas_giant). 
+planet(uranus, 19.18, 27, ice_giant). 
+planet(neptune, 30.07, 14, ice_giant). 
+% Rules to query the program 
+planet_within_distance(Planet, Distance) :- 
+planet(Planet, Dist, _, _), 
+Dist =< Distance. 
+planet_with_moons(Planet, NumMoons) :- 
+planet(Planet, _, NumMoons, _). 
+planet_type(Planet, Type) :- 
+planet(Planet, _, _, Type). 
+% Sample query predicates 
+% planet_within_distance(Planet, 10). 
+% planet_with_moons(Planet, 0). 
+% planet_type(Planet, Type).
