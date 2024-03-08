@@ -1,0 +1,23 @@
+% Facts representing birds and their flying capability 
+bird(crow, can_fly). 
+bird(penguin, cannot_fly). 
+bird(sparrow, can_fly). 
+bird(ostrich, cannot_fly). 
+bird(eagle, can_fly). 
+% Predicate to determine if a bird can fly 
+can_fly(Bird) :- 
+bird(Bird, can_fly), 
+write(Bird), 
+write(' can fly.'), 
+nl. 
+can_fly(Bird) :- 
+bird(Bird, cannot_fly), 
+write(Bird), 
+write(' cannot fly.'), 
+nl. 
+% Sample queries 
+% can_fly(crow). 
+% can_fly(penguin). 
+% can_fly(sparrow). 
+% can_fly(ostrich). 
+% can_fly(eagle).
