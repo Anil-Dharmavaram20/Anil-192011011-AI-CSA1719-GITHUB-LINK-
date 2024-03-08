@@ -1,0 +1,13 @@
+% Facts representing diseases and their associated diet suggestions 
+disease(high_blood_pressure, low_salt). 
+disease(diabetes, low_sugar). 
+disease(obesity, low_calorie). 
+% Rules for suggesting diet based on disease 
+suggest_diet(Disease) :- 
+disease(Disease, Diet), 
+write('For '), write(Disease), write(', '), 
+write('follow a diet low in '), write(Diet), write('.'), nl. 
+% Sample queries 
+% suggest_diet(high_blood_pressure). 
+% suggest_diet(diabetes). 
+% suggest_diet(obesity).
