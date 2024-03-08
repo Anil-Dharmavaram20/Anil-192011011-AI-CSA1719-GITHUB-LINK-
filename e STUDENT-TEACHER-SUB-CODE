@@ -1,0 +1,26 @@
+% Facts representing relationships between students, teachers, 
+subjects, and codes 
+teaches_subject(teacher1, math). 
+teaches_subject(teacher2, physics). 
+teaches_subject(teacher3, chemistry). 
+student_subject(student1, math). 
+student_subject(student1, physics). 
+student_subject(student2, physics). 
+student_subject(student3, chemistry). 
+subject_code(math, 101). 
+subject_code(physics, 102). 
+subject_code(chemistry, 103). 
+% Rules to query the program 
+teacher_of_subject(Teacher, Subject) :- 
+teaches_subject(Teacher, Subject). 
+subjects_taught_by_teacher(Teacher, Subject) :- 
+teaches_subject(Teacher, Subject). 
+student_taking_subject(Student, Subject) :- 
+student_subject(Student, Subject). 
+subject_code_of_subject(Subject, Code) :- 
+subject_code(Subject, Code). 
+% Sample query predicates 
+% teacher_of_subject(Teacher, math). 
+% subjects_taught_by_teacher(teacher1, Subject). 
+% student_taking_subject(student1, physics). 
+% subject_code_of_subject(physics, Code). 
