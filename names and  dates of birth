@@ -1,0 +1,13 @@
+% Facts representing individuals with their dates of birth 
+dob(john, '2000-01-01'). 
+dob(mary, '1995-05-10'). 
+dob(susan, '1988-11-20'). 
+dob(peter, '1976-09-15'). 
+% Predicate to find the date of birth given a name 
+f
+ ind_dob(Name, DOB) :- 
+dob(Name, DOB). 
+% Predicate to find the name given a date of birth 
+f
+ ind_name(DOB, Name) :- 
+dob(Name, DOB).
